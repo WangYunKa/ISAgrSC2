@@ -139,7 +139,7 @@ def random_classification_validation(model, data_path, transform, num_images=5):
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = torch.load('Run/model_complete.pth', map_location=device)
+    model = torch.load('weights/model_complete.pth', map_location=device)
     model.to(device)
     model.eval()
 
