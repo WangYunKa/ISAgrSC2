@@ -40,10 +40,11 @@ Click the links below to download the checkpoint for the corresponding model typ
 - `vit_b`:[ViT-B SAM model.](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth)
 
 ## Getting Started
-The code requires `python>=3.8`, as well as `pytorch>=1.7` and `torchvision>=0.8`.
+The code requires `python>=3.8`, as well as `pytorch>=1.7` and `torchvision>=0.8`. First you need to download the Segment Anything Model.
 ```
 pip install git+https://github.com/facebookresearch/segment-anything.git
 ```
+In order to run SAM, we also need to install the following dependencies.
 ```
 pip install opencv-python pycocotools matplotlib onnxruntime onnx
 ```
