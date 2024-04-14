@@ -216,7 +216,7 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=0.0001, momentum=0.9, weight_decay=0.1)
     train_model(model, train_data_loader, test_data_loader, criterion, optimizer, num_epochs=10)
-    torch.save(model, 'Run/model_complete.pth')
+    torch.save(model, 'weights/model_complete.pth')
 
     train_accuracy = evaluate_accuracy(train_data_loader, model, device)
     print(f'Train Accuracy: {train_accuracy:.4f}')
