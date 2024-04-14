@@ -17,6 +17,10 @@ git clone https://github.com/WangYunKa/ISAgrSC2.git
 pip install -r requirements.txt
 ```
 
+## Super resolution
+When you need to use your own pictures for testing, please use Real-ESRGAN super-resolution technology to perform four times super-resolution on your own pictures.
+[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN/tree/master)
+
 ## Data and Pretrained Models
 
 dataset
@@ -30,3 +34,6 @@ FP16-ViT-B-16.pt
 FP16-ViT-L-14.pt
 FP16-ViT-L-14-336px.pt
 
+## Getting Started
+
+```pip install git+https://github.com/facebookresearch/segment-anything.git```
