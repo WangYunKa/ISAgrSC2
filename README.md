@@ -22,18 +22,28 @@ When you need to use your own pictures for testing, please use Real-ESRGAN super
 [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN/tree/master)
 
 ## Data and Pretrained Models
+```
+M reg   //Image samples after super-resolution
+dataset   //Classification model training
+├── val   //Validation set, no labels
+├── test   //Test set, two folders, same as train
+└── train  //Train set
+    ├── field       
+    └── nonfield
+weights   //SAM pre-training weights and classification model weights
+```
 
-dataset
-├── val //5张遥感图片，有标签
-├── test   //3张遥感图片，无标签，在这个任务中没有用到
-└── train  //为空，通过`python preprocess.py`随机采样生成
-    ├── images       
-    └── labels
-FP16-ViT-B-32.pt
-FP16-ViT-B-16.pt
-FP16-ViT-L-14.pt
-FP16-ViT-L-14-336px.pt
+Click the links below to download the checkpoint for the corresponding model type. For testing time considerations, we recommend that you use `vit_b` with the smallest number of parameters for testing.
 
+- `default` or `vit_h`:[ViT-H SAM model.](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth)
+- `vit_l`:[ViT-L SAM model.](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_l_0b3195.pth)
+- `vit_b`:[ViT-B SAM model.](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth)
+- 
 ## Getting Started
-
-```pip install git+https://github.com/facebookresearch/segment-anything.git```
+The code requires `python>=3.8`, as well as `pytorch>=1.7` and `torchvision>=0.8`.
+```
+pip install git+https://github.com/facebookresearch/segment-anything.git
+```
+```
+pip install opencv-python pycocotools matplotlib onnxruntime onnx
+```
