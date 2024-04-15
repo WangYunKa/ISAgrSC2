@@ -4,7 +4,7 @@
 
 The precise segmentation of agricultural remote sensing images is pivotal for the effective monitoring and management of cultivated land resources.
 
-We introduce ISAgrSC2, an unsupervised segmentation framework for agricultural remote sensing images based on iterative use of SAM model. This innovative approach methodology has achieved state-of-the-art performance in terms of completeness and accuracy for instance segmentation of agricultural remote sensing images, with the IoU value for segmented area reaching as high as 0.917, tested on NWPU-RESISC45, DeepGlobe and USGS datasets.
+We introduce AgriSeIS and ISAgrSC2, an unsupervised segmentation framework for agricultural remote sensing images based on iterative use of SAM model. This innovative approach methodology has achieved state-of-the-art performance in terms of completeness and accuracy for instance segmentation of agricultural remote sensing images, with the IoU value for segmented area reaching as high as 0.917, tested on NWPU-RESISC45, DeepGlobe and USGS datasets.
 
 ## Pipeline
 ![image](https://github.com/WangYunKa/ISAgrSC2/assets/113222930/41be6ddb-beeb-4ce5-af2f-d9b44c3d2720)
@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ## Super resolution
 When you need to use your own pictures for testing, please use Real-ESRGAN super-resolution technology to perform four times super-resolution on your own pictures.
-[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN/tree/master)
+[Real-ESRGAN.](https://github.com/xinntao/Real-ESRGAN/tree/master)
 
 ## Data and Pretrained Models
 ```
@@ -44,7 +44,48 @@ The code requires `python>=3.8`, as well as `pytorch>=1.7` and `torchvision>=0.8
 ```
 pip install git+https://github.com/facebookresearch/segment-anything.git
 ```
-In order to run SAM, we also need to install the following dependencies.
+In order to run SAM, you also need to install the following dependencies.
 ```
 pip install opencv-python pycocotools matplotlib onnxruntime onnx
 ```
+### Segmentation
+The M reg folder contains sample images that can be used to run the segmentation program. You can add your pictures in it and modify the value of `i` in `Iterative_segmentation.py` and `Refined_segmentation.py` (pictures can be of any size, and the program will automatically resize the running photo).
+
+The following command performs preliminary iterative segmentation:
+```
+python Iterative_segmentation.py
+```
+If you need Refined segmentation, you need to run the following command afterwards:
+```
+python Refined_segmentation.py
+```
+If you need to modify the SAM pre-training weights used, just uncomment the following code accordingly.
+```
+# sam_checkpoint = "weights/sam_vit_h_4b8939.pth"
+# sam_checkpoint = "weights/sam_vit_b_01ec64.pth"
+sam_checkpoint = "weights/sam_vit_l_0b3195.pth"
+# model_type = "vit_b"
+model_type = "vit_l"
+# model_type = "default"
+```
+The results of the program will be saved in the Run folder.
+### Classification
+Before training the classification model, you can prepare the training data yourself and organize your data in the form of the `dataset`.
+You can also use the segmentation results of the segmentation model to generate your own training set, using the following steps:
+
+Run the `json_file_generation()` function in `Plot_cropping.py` to get the json file of a certain picture, and use `X-anylabeling` or other labeling software to label it while the cultivated land is marked as `1`, the non-cultivated land is marked as `0`.
+
+Then, save your labeled json file in the `Label` folder with corresponding images, and run `Acquisition_of_cultivated_land()` and `Acquisition_of_non_cultivated_land()` function, thereby obtaining the intercepted plot for training.
+
+Then，training!
+```
+python Classification_training.py
+```
+If you want to evaluate your model:
+```
+python Evaluate_classification.py
+```
+
+## Acknowledgments
+- [Real-ESRGAN: Training Real-World Blind Super-Resolution with Pure Synthetic Data](https://github.com/xinntao/Real-ESRGAN/tree/master)
+- [Segment Anything](https://github.com/facebookresearch/segment-anything)
