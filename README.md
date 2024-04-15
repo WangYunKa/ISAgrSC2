@@ -86,6 +86,6 @@ If you want to evaluate your model:
 python Evaluate_classification.py
 ```
 
-## Acknowledgments
+## References
 - [Real-ESRGAN: Training Real-World Blind Super-Resolution with Pure Synthetic Data](https://github.com/xinntao/Real-ESRGAN/tree/master)
 - [Segment Anything](https://github.com/facebookresearch/segment-anything)
