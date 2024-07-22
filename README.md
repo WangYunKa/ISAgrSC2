@@ -1,6 +1,7 @@
 # LiSegAgr
 ## Labeled Instance Segmentation for Agricultural Remote Sensing Images through Iterative SAM
-![image](https://github.com/WangYunKa/ISAgrSC2/assets/113222930/5a49894a-cda5-4fc9-8ac4-548210422e8d)
+![image](https://github.com/user-attachments/assets/bc0b6fd6-90a1-4842-97b0-0ac48086cc35)
+
 
 The precise segmentation of agricultural remote sensing images is pivotal for the effective monitoring and management of cultivated land resources.
 
