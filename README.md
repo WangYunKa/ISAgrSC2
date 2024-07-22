@@ -1,10 +1,10 @@
-# ISAgrSC2
-## Agricultural Remote Sensing Image Segmentation and Cultivated Land Classification
+# LiSegAgr
+## Labeled Instance Segmentation for Agricultural Remote Sensing Images through Iterative SAM
 ![image](https://github.com/WangYunKa/ISAgrSC2/assets/113222930/5a49894a-cda5-4fc9-8ac4-548210422e8d)
 
 The precise segmentation of agricultural remote sensing images is pivotal for the effective monitoring and management of cultivated land resources.
 
-We introduce AgriSeIS and ISAgrSC2, an unsupervised segmentation framework for agricultural remote sensing images based on iterative use of SAM model. This innovative approach methodology has achieved state-of-the-art performance in terms of completeness and accuracy for instance segmentation of agricultural remote sensing images, with the IoU value for segmented area reaching as high as 0.917, tested on NWPU-RESISC45, DeepGlobe and USGS datasets.
+We introduce AgriSeIS and LiSegAgr, an unsupervised segmentation framework for agricultural remote sensing images based on iterative use of SAM model. This innovative approach methodology has achieved state-of-the-art performance in terms of completeness and accuracy for instance segmentation of agricultural remote sensing images, with the IoU value for segmented area reaching as high as 0.917, tested on NWPU-RESISC45, DeepGlobe and USGS datasets.
 
 ## Pipeline
 ![image](https://github.com/WangYunKa/ISAgrSC2/assets/113222930/41be6ddb-beeb-4ce5-af2f-d9b44c3d2720)
@@ -85,6 +85,12 @@ If you want to evaluate your model:
 ```
 python Evaluate_classification.py
 ```
+
+### Further experimental results demonstrate the effectiveness of our method.
+![image](https://github.com/user-attachments/assets/8ede2024-7de8-43eb-b76e-4f15c2bd997c)
+![image](https://github.com/user-attachments/assets/1955cb34-0544-4552-b0f2-6d31e39fe869)
+
+
 
 ## References
 - [Real-ESRGAN: Training Real-World Blind Super-Resolution with Pure Synthetic Data](https://github.com/xinntao/Real-ESRGAN/tree/master)
