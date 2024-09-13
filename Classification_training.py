@@ -20,6 +20,7 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from torchvision.models import resnet50, ResNet50_Weights
 
+
 def data_loader(train_data_path, test_data_path, batchsize):
     transform_img = transforms.Compose([
         transforms.Resize((224, 224)),
